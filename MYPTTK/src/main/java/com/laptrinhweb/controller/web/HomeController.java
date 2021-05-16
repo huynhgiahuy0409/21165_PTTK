@@ -17,7 +17,7 @@ import com.laptrinhweb.service.IUserService;
 import com.laptrinhweb.utils.FormUtil;
 import com.laptrinhweb.utils.SessionUtil;
 
-@WebServlet(urlPatterns = { "/trang-chu", "/dang-nhap", "/thoat",
+@WebServlet(urlPatterns = { "/trang-chu", "/account", "/thoat",
 		"/shoes-page", "/collection-page", "/racingBoots-page", "/contact-page", "/search-bar",  })
 public class HomeController extends HttpServlet {
 	/**
@@ -35,7 +35,7 @@ public class HomeController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String views = "";
 		String serverPath = req.getServletPath();
-		views = "views/home.jsp";
+		views = "";
 		if (serverPath.equals("/trang-chu")) {
 			views = "views/home.jsp";
 		}else if(serverPath.equals("/collection-page")) {
@@ -50,6 +50,8 @@ public class HomeController extends HttpServlet {
 			views = "views/web/contact.jsp";
 		}else if (serverPath.equals("/search-bar")) {
 			views = "views/web/search bar.jsp";
+		}else if(serverPath.equals("/account")) {
+			views = "views/login.jsp";
 		}
 		RequestDispatcher rq = req.getRequestDispatcher(views);
 		rq.forward(req, res);
@@ -57,7 +59,6 @@ public class HomeController extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
-		System.out.println(req.getRequestURL() + req.getParameter("userName") + req.getParameter("password"));
 		if (action != null && action.equals("login")) {
 			//Maping data từ client qua server
 			UserModel model = FormUtil.toModel(UserModel.class, req);

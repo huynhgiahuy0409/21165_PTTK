@@ -33,7 +33,7 @@ html {
 }
 
 body {
-     color: #666666;
+     color: #0c0116;
      font-size: 14px;
      font-family: Poppins;
      line-height: 1.80857;
@@ -676,7 +676,7 @@ a:hover {
 .section_footer {
     width: 100%;
     float: left;
-    background-color: #272222;
+    background:#0c0116;
     height: auto;
     padding-top: 30px;
     padding-bottom: 30px;

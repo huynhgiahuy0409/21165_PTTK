@@ -23,7 +23,7 @@
 	</decorator>
 	<decorator name="login" page="login.jsp">
 		<pattern>
-			/dang-nhap
+			/account*
 		</pattern>
 	</decorator>
 	<decorator name="search" page="search bar.jsp">

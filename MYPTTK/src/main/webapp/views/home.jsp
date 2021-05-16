@@ -27,7 +27,7 @@
                            <a class="nav-item nav-link" href="<c:url value = "/racingBoots-page" />">Blog</a>
                            <a class="nav-item nav-link" href="<c:url value = "/contact-page"/>">Contact</a>
                            <a class="nav-item nav-link last" href="<c:url value="/search-bar"/>"><i class="fas fa-search"></i></a>
-                           <a class="nav-item nav-link last" href="<c:url value="/search-bar"/>"><i class="fas fa-user"></i></a>
+                           <a class="nav-item nav-link last" href="<c:url value="/account"/>"><i class="fas fa-user"></i></a>
                            <a class="nav-item nav-link last" href="<c:url value="/search-bar"/>"><i class="fas fa-heart"></i></a>
                            <a class="nav-item nav-link last" href="<c:url value="/search-bar"/>"><i class="fas fa-shopping-cart"></i></a>
                         </div>
