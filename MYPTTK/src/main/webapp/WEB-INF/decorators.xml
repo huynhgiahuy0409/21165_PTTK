@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+
+
+	<exclues>
+		<pattern>/api*</pattern>
+	</exclues>
+
+	<decorator name="admin" page="admin.jsp">
+		<pattern>
+			/admin*
+		</pattern>
+	</decorator>
+	<decorator name="web" page="web.jsp">
+		<pattern>
+			/
+		</pattern>
+	</decorator>
+	<decorator name="home" page="home.jsp">
+		<pattern>
+			/trang-chu
+		</pattern>
+	</decorator>
+	<decorator name="login" page="login.jsp">
+		<pattern>
+			/dang-nhap
+		</pattern>
+	</decorator>
+	<decorator name="search" page="search bar.jsp">
+		<pattern>
+			/search*
+		</pattern>
+	</decorator>
+</decorators>
