@@ -50,21 +50,21 @@ public class HomeController extends HttpServlet {
 			views = "views/web/contact.jsp";
 		}else if (serverPath.equals("/search-bar")) {
 			views = "views/web/search bar.jsp";
-		}else if(serverPath.equals("/account")) {
-			views = "views/login.jsp";
 		}
 		
 		if (serverPath.equals("/account")) {
 			String action ="";
-			action = req.getParameter(action);
+			views = "/views/login.jsp";
+			action = req.getParameter("action");
+			System.out.println(action);
 			if (action != null && action.equals("login")) {
 				String message = req.getParameter("message");
 				String alert = req.getParameter("alert");
 				if (alert != null && message != null) {
 					req.setAttribute("message", resourceBundle.getString(message));
 					req.setAttribute("alert", alert);
+					System.out.println("a");
 				}
-				views = "/views/login.jsp";
 			} else if (action != null && action.equals("logout")) {
 				SessionUtil.getInstance().removeValue(req, "USERMODEL");
 				if (SessionUtil.getInstance().getValue(req, "USERMODEL") == null) {
