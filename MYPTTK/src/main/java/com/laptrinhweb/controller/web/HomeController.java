@@ -21,7 +21,7 @@ import com.laptrinhweb.utils.SessionUtil;
 		"/shoes-page", "/collection-page", "/racingBoots-page", "/contact-page", "/search-bar",  })
 public class HomeController extends HttpServlet {
 	/**
-	
+	aa
 	 * 
 	 */
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
