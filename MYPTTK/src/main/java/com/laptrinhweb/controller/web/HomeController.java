@@ -59,24 +59,26 @@ public class HomeController extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
-		if (action != null && action.equals("login")) {
-			//Maping data từ client qua server
-			UserModel model = FormUtil.toModel(UserModel.class, req);
-			System.out.println(model.toString());
-//			Check Username password
-			model = userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
-			if (model != null) {
-				SessionUtil.getInstance().putValue(req, "USERMODEL", model);
-				if (model.getRole().getCode().equals("USER")) {
-					res.sendRedirect(req.getContextPath() + "/trang-chu");
-					System.out.println("ROLE USER");
-				} else if (model.getRole().getCode().equals("ADMIN")) {
-					res.sendRedirect(req.getContextPath() + "/admin-home");
-					System.out.println("ROLE ADMIN");
+		if(req.getServletPath().equals("/account")) {
+			if (action != null && action.equals("login")) {
+				//Maping data từ client qua server
+				UserModel model = FormUtil.toModel(UserModel.class, req);
+				System.out.println(model.toString());
+//				Check Username password
+				model = userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
+				if (model != null) {
+					SessionUtil.getInstance().putValue(req, "USERMODEL", model);
+					if (model.getRole().getCode().equals("USER")) {
+						res.sendRedirect(req.getContextPath() + "/trang-chu");
+						System.out.println("ROLE USER");
+					} else if (model.getRole().getCode().equals("ADMIN")) {
+						res.sendRedirect(req.getContextPath() + "/admin-home");
+						System.out.println("ROLE ADMIN");
+					}
+				} else {
+					res.sendRedirect(req.getContextPath()
+							+ "/account?action=login&message=username_password_invalid&alert=danger");
 				}
-			} else {
-				res.sendRedirect(req.getContextPath()
-						+ "/dang-nhap?action=login&message=username_password_invalid&alert=danger");
 			}
 		}
 	}
