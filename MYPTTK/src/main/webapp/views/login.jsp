@@ -25,6 +25,11 @@
 						<input class="input100" type="password" id="password" name="password" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
+					<c:if test="${not empty message}">
+						<div class="alert alert-${alert}">
+							${message} 
+						</div>
+					</c:if>
 
 					<div class="container-login100-form-btn m-t-32">
 						<input type="hidden" value="login" name="action"/>

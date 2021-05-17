@@ -53,6 +53,26 @@ public class HomeController extends HttpServlet {
 		}else if(serverPath.equals("/account")) {
 			views = "views/login.jsp";
 		}
+		
+		if (serverPath.equals("/account")) {
+			String action ="";
+			action = req.getParameter(action);
+			if (action != null && action.equals("login")) {
+				String message = req.getParameter("message");
+				String alert = req.getParameter("alert");
+				if (alert != null && message != null) {
+					req.setAttribute("message", resourceBundle.getString(message));
+					req.setAttribute("alert", alert);
+				}
+				views = "/views/login.jsp";
+			} else if (action != null && action.equals("logout")) {
+				SessionUtil.getInstance().removeValue(req, "USERMODEL");
+				if (SessionUtil.getInstance().getValue(req, "USERMODEL") == null) {
+					System.out.println("REMOVED");
+				}
+				res.sendRedirect(req.getContextPath() + "/trang-chu");
+			}
+		}
 		RequestDispatcher rq = req.getRequestDispatcher(views);
 		rq.forward(req, res);
 	}
