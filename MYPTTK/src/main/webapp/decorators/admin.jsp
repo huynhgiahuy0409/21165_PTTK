@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title><dec:title default="Trang chủ" /></title>
+	<title><dec:title default="Trang chủ" /></title>
 	<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
@@ -17,34 +17,34 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
     
-    <script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
+    <script src="<c:url value='/ckeditor-libs/ckeditor.js' />"></script>
 </head>
 <body class="no-skin">
-<!-- header -->
-<%@ include file="/common/admin/header.jsp" %>
-<!-- header -->
-
-<div class="main-container" id="main-container">
-    <script type="text/javascript">
-        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-    </script>
+	<!-- header -->
+    <%@ include file="/common/admin/header.jsp" %>
     <!-- header -->
-    <%@ include file="/common/admin/menu.jsp" %>
-    <!-- header -->
-
-    <dec:body/>
-
-    <!-- footer -->
-    <%@ include file="/common/admin/footer.jsp" %>
-    <!-- footer -->
-
-    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse display">
-        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-    </a>
-</div>
-
-
-<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
+	
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+		</script>
+		<!-- header -->
+    	<%@ include file="/common/admin/menu.jsp" %>
+    	<!-- header -->
+		
+		<dec:body/>
+		
+		<!-- footer -->
+    	<%@ include file="/common/admin/footer.jsp" %>
+    	<!-- footer -->
+    	
+    	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse display">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	
+	
+	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery.easypiechart.min.js' />"></script>

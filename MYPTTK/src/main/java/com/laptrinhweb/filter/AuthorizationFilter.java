@@ -30,19 +30,19 @@ public class AuthorizationFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
-		String url = request.getRequestURI();
-		if (url.startsWith("admin", 10)) {
+		String url = request.getServletPath();
+		if (url.startsWith("/admin")) {
 			UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 			if (model != null) {
 				if (model.getRole().getCode().equals(SystemConstant.ADMIN)) {
 					filterChain.doFilter(servletRequest, servletResponse);
 				} else if (model.getRole().getCode().equals(SystemConstant.USER)) {
 					response.sendRedirect(
-							request.getContextPath() + "/dang-nhap?action=login&message=not_permission&alert=danger");
+							request.getContextPath() + "/account?action=login&message=not_permission&alert=danger");
 				}
 			} else {
 				response.sendRedirect(
-						request.getContextPath() + "/dang-nhap?action=login&message=not_login&alert=danger");
+						request.getContextPath() + "/account?action=login&message=not_login&alert=danger");
 			}
 		} else {
 			filterChain.doFilter(servletRequest, servletResponse);

@@ -34,7 +34,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <c:if test="${not empty messageResponse}">
-                        <div class="alert alert-${alert}">${messageResponse}</div>
+                        <div class="alert alert-${alert}">${messageResponse}
+                        </div>
                     </c:if>
 
                     <!-- QUAN TRỌNG: Submit dữ liệu -->

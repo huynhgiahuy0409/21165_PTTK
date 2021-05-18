@@ -42,7 +42,6 @@ public class NewController extends HttpServlet {
 			System.out.println(model.getListResult());
 			model.setTotalItem(newsService.getTotalITem());
 			model.setTotalPage((int) Math.ceil((double) model.getTotalItem()) / model.getMaxPageItem());
-			
 			view = "views/admin/new/list.jsp";
 		} else if (model.getType().equals(SystemConstant.EDIT)) {
 			System.out.println("EDIT"+model.getListResult());
@@ -54,23 +53,23 @@ public class NewController extends HttpServlet {
 		}
 		
 		if (req.getParameter("message") != null) {
-			String messageRespone = ""; //display, text
+			String messageResponse = ""; //display, text
 			String alert = "";
 			String message = req.getParameter("message");
-			if (message.equals("insert_succes")) {
-				messageRespone = "Insert Success";
+			if (message.equals("insert_success")) {
+				messageResponse = "Insert Success";
 				alert = "success";
-			}else if(message.equals("update_succes")){
-				messageRespone = "Insert Success";
+			}else if(message.equals("update_success")){
+				messageResponse = "Insert Success";
 				alert = "success";
-			}else if(message.equals("delete_succes")){
-				messageRespone = "Delete Success";
+			}else if(message.equals("delete_success")){
+				messageResponse = "Delete Success";
 				alert = "success";
 			}else if(message.equals("error_system")){
-				messageRespone = "ERROR System";
+				messageResponse = "ERROR System";
 				alert = "danger";
 			}
-			req.setAttribute("messageRespone", messageRespone);
+			req.setAttribute("messageResponse", messageResponse);
 			req.setAttribute("alert", alert);
 		}
 		req.setAttribute(SystemConstant.MODEL, model);
