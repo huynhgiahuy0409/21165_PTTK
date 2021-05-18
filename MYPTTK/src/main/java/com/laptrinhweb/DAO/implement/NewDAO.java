@@ -2,11 +2,12 @@ package com.laptrinhweb.DAO.implement;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import com.laptrinhweb.DAO.INewDAO;
 import com.laptrinhweb.mapper.NewMapper;
 import com.laptrinhweb.model.NewModel;
 import com.laptrinhweb.paging.Pageble;
-import com.mysql.cj.util.StringUtils;
+
 
 public class NewDAO extends abstractDAO<NewModel> implements INewDAO {
 
@@ -52,7 +53,7 @@ public class NewDAO extends abstractDAO<NewModel> implements INewDAO {
 	@Override
 	public List<NewModel> findAll(Pageble pageble) {
 		StringBuilder sql = new StringBuilder("SELECT * FROM news");
-		if (pageble.getSorter() != null) {
+		if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName()) && StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {
 			sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + "");
 		}
 		if (pageble.getOffset() != null && pageble.getLimit() != null) {

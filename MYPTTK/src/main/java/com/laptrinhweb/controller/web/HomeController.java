@@ -56,14 +56,12 @@ public class HomeController extends HttpServlet {
 			String action ="";
 			views = "/views/login.jsp";
 			action = req.getParameter("action");
-			System.out.println(action);
 			if (action != null && action.equals("login")) {
 				String message = req.getParameter("message");
 				String alert = req.getParameter("alert");
 				if (alert != null && message != null) {
 					req.setAttribute("message", resourceBundle.getString(message));
 					req.setAttribute("alert", alert);
-					System.out.println("a");
 				}
 			} else if (action != null && action.equals("logout")) {
 				SessionUtil.getInstance().removeValue(req, "USERMODEL");
@@ -78,6 +76,7 @@ public class HomeController extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		System.out.println(SessionUtil.getInstance().getValue(req, "USERMODEL"));
 		String action = req.getParameter("action");
 		if(req.getServletPath().equals("/account")) {
 			if (action != null && action.equals("login")) {
@@ -95,6 +94,7 @@ public class HomeController extends HttpServlet {
 						res.sendRedirect(req.getContextPath() + "/admin-home");
 						System.out.println("ROLE ADMIN");
 					}
+					System.out.println(SessionUtil.getInstance().getValue(req, "USERMODEL"));
 				} else {
 					res.sendRedirect(req.getContextPath()
 							+ "/account?action=login&message=username_password_invalid&alert=danger");

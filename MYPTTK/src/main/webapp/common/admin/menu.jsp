@@ -47,7 +47,7 @@
                         <c:param name="sortName" value="title"></c:param>
                         <c:param name="sortBy" value="desc"></c:param>
                     </c:url>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
+                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=3&sortName=title&sortBy=desc"/>'>
                         <i class="menu-icon fa fa-caret-right"></i> DS bài viết
                     </a> <b class="arrow"></b>
                 </li>
