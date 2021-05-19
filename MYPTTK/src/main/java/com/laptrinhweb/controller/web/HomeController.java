@@ -18,7 +18,7 @@ import com.laptrinhweb.utils.FormUtil;
 import com.laptrinhweb.utils.SessionUtil;
 
 @WebServlet(urlPatterns = { "/trang-chu", "/account", "/thoat",
-		"/shoes-page", "/collection-page", "/racingBoots-page", "/contact-page", "/search-bar",  })
+		"/sale-page", "/product-page", "/contact-page", "/search-bar",  })
 public class HomeController extends HttpServlet {
 	/**
 	aa
@@ -38,14 +38,10 @@ public class HomeController extends HttpServlet {
 		views = "";
 		if (serverPath.equals("/trang-chu")) {
 			views = "views/home.jsp";
-		}else if(serverPath.equals("/collection-page")) {
-			views = "views/web/collection.jsp";
-		}else if(serverPath.equals("/racingBoots-page")) {
-			views = "views/web/racing boots.jsp";
-		}else if(serverPath.equals("/shoes-page")) {
-			views = "views/web/shoes.jsp";
-		}else if(serverPath.equals("/racingBoots-page")) {
-			views = "views/web/racing boots.jsp";
+		}else if(serverPath.equals("/product-page")) {
+			views = "views/web/product.jsp";
+		}else if(serverPath.equals("/sale-page")) {
+			views = "views/web/sale.jsp";
 		}else if(serverPath.equals("/contact-page")) {
 			views = "views/web/contact.jsp";
 		}else if (serverPath.equals("/search-bar")) {

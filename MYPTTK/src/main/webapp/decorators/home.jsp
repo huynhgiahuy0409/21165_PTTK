@@ -20,7 +20,6 @@
       <link rel="stylesheet" href="template/web/css/style1.css">
       <!-- Responsive-->
       <link rel="stylesheet" href="template/web/css/responsive.css">
-      <!-- fevicon -->
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="template/web/css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->

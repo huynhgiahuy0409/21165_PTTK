@@ -15,14 +15,14 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                            <a class="nav-item nav-link" href="<c:url value = "/trang-chu"/>">Home</a>
-                           <a class="nav-item nav-link" href="<c:url value = "/collection-page"/>">Product</a>
-                           <a class="nav-item nav-link" href="<c:url value = "/shoes-page"/>">Sale</a>
-                           <a class="nav-item nav-link" href="<c:url value = "/racingBoots-page" />">Blog</a>
+                           <a class="nav-item nav-link" href="<c:url value = "/product-page"/>">Product</a>
+                           <a class="nav-item nav-link" href="<c:url value = "/sale-page"/>">Sale</a>
+                           <a class="nav-item nav-link" href="<c:url value = "/blog-page?page=1&maxPageItem=9&sortName=title&sortBy=desc" />">Blog</a>
                            <a class="nav-item nav-link" href="<c:url value = "/contact-page"/>">Contact</a>
                            <a class="nav-item nav-link last" href="<c:url value="/search-bar"/>"><i class="fas fa-search"></i></a>
                            <a class="nav-item nav-link last" href="<c:url value="/account"/>"><i class="fas fa-user"></i></a>
-                           <a class="nav-item nav-link last" href="<c:url value="/favorite"/>"><i class="fas fa-heart"></i></a>
-                           <a class="nav-item nav-link last" href="<c:url value="/checkout"/>"><i class="fas fa-shopping-cart"></i></a>
+                           <a class="nav-item nav-link last" href="<c:url value="/wishlist"/>"><i class="fas fa-heart"></i></a>
+                           <a class="nav-item nav-link last" href="<c:url value="/shopping-cart"/>"><i class="fas fa-shopping-cart"></i></a>
                         </div>
                     </div>
                     </nav>

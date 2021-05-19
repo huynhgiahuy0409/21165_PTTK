@@ -1,4 +1,4 @@
-package com.laptrinhweb.controller.admin;
+package com.laptrinhweb.controller.web;
 
 import java.io.IOException;
 
@@ -20,8 +20,8 @@ import com.laptrinhweb.service.INewsService;
 import com.laptrinhweb.utils.FormUtil;
 import com.laptrinhweb.utils.MessageUtil;
 
-@WebServlet(urlPatterns = { "/admin-new" })
-public class NewController extends HttpServlet {
+@WebServlet(urlPatterns = { "/blog-page" })
+public class BlogController extends HttpServlet {
 
 	/**
 	 * 
@@ -33,30 +33,23 @@ public class NewController extends HttpServlet {
 	@Inject
 	private ICategoryService categoryService;
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		NewModel model = FormUtil.toModel(NewModel.class, req);
-		System.out.println("NewController" + model.getTitle());
-		String view = "";
-		if (model.getType().equals(SystemConstant.LIST)) {
+		String views = "";
+		String serverPath = req.getServletPath();
+		views = "";
+		if (serverPath.equals("/blog-page")) {
+			views = "views/web/blog.jsp";
+			NewModel model = FormUtil.toModel(NewModel.class, req);
 			Pageble pageble = new PageRequest(model.getPage(), model.getMaxPageItem(),
 					new Sorter(model.getSortName(), model.getSortBy()));
 			model.setListResult(newsService.findAll(pageble));
 			System.out.println(model.getListResult());
 			model.setTotalItem(newsService.getTotalITem());
 			model.setTotalPage((int) Math.ceil((double) model.getTotalItem()) / model.getMaxPageItem());
-			view = "views/admin/new/list.jsp";
-		} else if (model.getType().equals(SystemConstant.EDIT)) {
-			System.out.println("EDIT"+model.getListResult());
-			if (model.getId() != null) {
-				model = newsService.findOne(model.getId());
-			} 
-			req.setAttribute("categories", categoryService.findAll());
-			view = "/views/admin/new/edit.jsp";
+			MessageUtil.showMessage(req);
+			req.setAttribute(SystemConstant.MODEL, model);
 		}
-		MessageUtil.showMessage(req);
-		req.setAttribute(SystemConstant.MODEL, model);
-		RequestDispatcher rd = req.getRequestDispatcher(view);
+		RequestDispatcher rd = req.getRequestDispatcher(views);
 		rd.forward(req, res);
-
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
