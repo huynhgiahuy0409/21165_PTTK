@@ -26,11 +26,12 @@
 	                    <div class="col-lg-4 col-md-6">
 	                        <div class="blog-item">
 	                            <div class="blog-img">
-	                                <img hraf="" alt="Blog">
+	                                <!-- <img src="template/blog/img/shopping.jpg" alt="Blog"> -->
+	                                <iframe src="https://drive.google.com/file/d/1rYUTtMFOlRPvwDcH5Y7uqtyBaNeZk2MA/preview" width="400" height="200"></iframe>
 	                            </div>
 	                            <div class="blog-meta">
 	                                <i class="fa fa-list-alt"></i>
-	                                <a href="">Hair Cut</a>
+	                                <a href="">Shoes</a>
 	                                <i class="fa fa-calendar-alt"></i>
 	                                <p>01-Jan-2045</p>
 	                            </div>
